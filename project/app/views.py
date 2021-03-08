@@ -2,4 +2,8 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'page1.html')
+    user = request.user
+    title = 'Strona glowna'
+    ctx = {'title': title,
+           'user': user}
+    return render(request, 'main_page.html', ctx)
