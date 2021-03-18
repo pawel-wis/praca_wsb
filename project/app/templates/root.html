@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark fixed-top">
-
+    <div class="container-fluid">
     <a hre="#" class="navbar-brand">TECH_SERWIS</a>
 
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -23,15 +23,31 @@
         </div>>
 
         <!-- Warunek czy uzytkownik jest zalogowany czy nie-->
-        <div class="navbar-nav ms-auto">
-            {% if user.is_authenticated %}
-            <a href="#" class="nav-item nav-link">Wyloguj sie</a>
-            {% else %}
-            <a href="#" class="nav-item nav-link">Zarejstruj sie</a>
-            <a href="#" class="nav-item nav-link">Logowanie</a>
-            {% endif %}
-        </div>
+<!--        <div class="navbar-nav ms-auto">-->
+<!--            {% if user.is_authenticated %}-->
+<!--            <a href="#" class="nav-item nav-link">Wyloguj sie</a>-->
+<!--            {% else %}-->
+<!--            <a href="#" class="nav-item nav-link">Zarejstruj sie</a>-->
+<!--            <a href="#" class="nav-item nav-link">Logowanie</a>-->
+<!--            {% endif %}-->
+<!--        </div>-->
+        {% if user.is_authenticated %}
+        <button class="ms-auto btn btn-dark" type="submit">Wyloguj</button>
+        {% else %}
+        <form class="form-inline ms-auto">
+            <div class="row">
+                <div class="col">
+                    <input  class="form-control mr-sm-2" type="text" placeholder="Login">
+                </div>
+                <div class="col">
+                    <button class="btn btn-dark" type="submit">Zaloguj</button>
+                </div>
+            </div>
+        </form>
+        {% endif %}
 
+
+    </div>
     </div>
 </nav>
 
